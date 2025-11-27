@@ -15,4 +15,4 @@ phases:
 artifacts:
   base-directory: cdk.out
   files:
-    - ServiceStack.template.json
+    - "**/*"
