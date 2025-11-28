@@ -1,14 +1,47 @@
-# Welcome to your CDK TypeScript project
+# AWS CDK CI/CD Pipeline – Assignment
 
-This is a blank project for CDK development with TypeScript.
+### Student Details  
+- **Name:** Zafar Ahmed  
+- **Student ID:** 9027671  
+- **Repository:** https://github.com/Zafar0725/cdk-lab-pipeline  
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+---
 
-## Useful commands
+## 📘 Project Overview
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+This project implements a fully automated CI/CD pipeline using **AWS CDK**, **CodePipeline**, **CodeBuild**, and **GitHub**.  
+Whenever code is pushed to GitHub, the pipeline automatically:
+
+1️⃣ Fetches source code from GitHub using CodeStar connection  
+2️⃣ Runs CDK build and synthesizes CloudFormation templates  
+3️⃣ Deploys infrastructure using CloudFormation  
+
+The deployed service includes:
+- A **Lambda function**
+- An **API Gateway** endpoint: `/hello`
+
+---
+
+## 🏗 Architecture
+
+
+---
+GitHub → CodePipeline → CodeBuild → CloudFormation → Lambda + API Gateway
+## 📁 Main Files
+
+| File | Description |
+|------|-------------|
+| `bin/cdk-lab-pipeline.ts` | CDK entry point that initializes stacks |
+| `lib/service-stack.ts` | Deploys Lambda + API Gateway |
+| `lib/pipeline-stack.ts` | Creates CI/CD pipeline with GitHub integration |
+| `buildspec.yml` | CodeBuild instructions |
+
+---
+
+## 🚀 Deployment Steps (Simplified)
+
+```bash
+npm install
+npm run build
+cdk bootstrap
+cdk deploy PipelineStack
